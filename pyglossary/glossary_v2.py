@@ -1063,12 +1063,15 @@ class GlossaryCommon(GlossaryInfo, GlossaryProgress, PluginManager):  # noqa: PL
 				log.critical("No sortKeyName was found in plugin")
 				return None
 
-			if sortKeyName and sortKeyName != writerSortKeyName:
+			if sortKeyName and sortKeyName != writerSortKeyName and False:
 				log.warning(
 					f"Ignoring user-defined sort order {sortKeyName!r}"
 					f", and using sortKey function from {plugin.name} plugin",
 				)
-			sortKeyName = writerSortKeyName
+				sortKeyName = None
+
+			if not sortKeyName:
+				sortKeyName = writerSortKeyName
 
 			if writerSortEncoding:
 				sortEncoding = writerSortEncoding
