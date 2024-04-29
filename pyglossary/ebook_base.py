@@ -59,6 +59,7 @@ class GroupState:
 		self.group_contents: "list[str]" = []
 
 	def is_new(self, prefix: str) -> bool:
+		return False
 		return bool(self.last_prefix) and prefix != self.last_prefix
 
 	def add(self, entry: "EntryType", prefix: str) -> None:
